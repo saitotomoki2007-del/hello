@@ -7,73 +7,434 @@
     <style>
       :root {
         color-scheme: light;
-        --text: #1f2933;
-        --muted: #52616b;
-        --line: #d9e2ec;
-        --accent: #0f766e;
-        --bg: #f7f9fb;
+        --ink: #182026;
+        --muted: #687782;
+        --paper: #fbfaf7;
+        --panel: #ffffff;
+        --line: #dde5e8;
+        --teal: #0f6d64;
+        --gold: #b88735;
+        --coral: #c4564a;
+        --shadow: 0 18px 48px rgba(24, 32, 38, 0.12);
       }
 
       * {
         box-sizing: border-box;
       }
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         margin: 0;
-        min-height: 100vh;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: var(--text);
-        background: var(--bg);
-        line-height: 1.6;
-      }
-
-      main {
-        width: min(720px, calc(100% - 32px));
-        margin: 0 auto;
-        padding: 96px 0;
-      }
-
-      h1 {
-        margin: 0 0 16px;
-        font-size: clamp(2rem, 6vw, 3.5rem);
-        line-height: 1.1;
-        letter-spacing: 0;
-      }
-
-      p {
-        margin: 0 0 24px;
-        color: var(--muted);
-        font-size: 1.125rem;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--ink);
+        background: var(--paper);
+        line-height: 1.7;
       }
 
       a {
-        color: var(--accent);
-        text-decoration-thickness: 2px;
-        text-underline-offset: 4px;
+        color: inherit;
+      }
+
+      .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+        background: rgba(24, 32, 38, 0.74);
+        backdrop-filter: blur(18px);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: min(1120px, calc(100% - 32px));
+        min-height: 64px;
+        margin: 0 auto;
+      }
+
+      .brand {
+        color: #fff;
+        font-size: 0.95rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-decoration: none;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.9rem;
+        text-decoration: none;
+      }
+
+      .nav-links a:hover {
+        color: #fff;
+      }
+
+      .hero {
+        min-height: 92vh;
+        display: grid;
+        align-items: end;
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background:
+          linear-gradient(90deg, rgba(15, 22, 28, 0.86), rgba(15, 22, 28, 0.54) 54%, rgba(15, 22, 28, 0.26)),
+          url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=84") center / cover;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 0;
+        height: 26%;
+        background: linear-gradient(180deg, rgba(251, 250, 247, 0), var(--paper));
+      }
+
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 148px 0 118px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0 0 24px;
+        color: rgba(255, 255, 255, 0.84);
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 34px;
+        height: 2px;
+        background: var(--gold);
+      }
+
+      h1 {
+        max-width: 780px;
+        margin: 0;
+        font-size: clamp(3rem, 8vw, 6.8rem);
+        line-height: 0.98;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 650px;
+        margin: 28px 0 0;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: clamp(1.05rem, 2vw, 1.35rem);
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 34px;
+      }
+
+      .button {
+        display: inline-flex;
+        min-height: 46px;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 8px;
+        padding: 10px 18px;
+        color: #fff;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .button.primary {
+        border-color: var(--gold);
+        background: var(--gold);
+        color: #172026;
+      }
+
+      .section {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 92px 0;
+      }
+
+      .section-heading {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 440px);
+        gap: 36px;
+        align-items: end;
+        margin-bottom: 42px;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.6rem);
+        line-height: 1.08;
+        letter-spacing: 0;
+      }
+
+      .section-heading p,
+      .text-block p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.04rem;
+      }
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .feature {
+        min-height: 230px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 26px;
+        background: var(--panel);
+        box-shadow: 0 10px 30px rgba(24, 32, 38, 0.06);
+      }
+
+      .feature strong {
+        display: block;
+        color: var(--gold);
+        font-size: 0.86rem;
+        margin-bottom: 14px;
+      }
+
+      .feature h3 {
+        margin: 0 0 12px;
+        font-size: 1.3rem;
+        line-height: 1.25;
+        letter-spacing: 0;
+      }
+
+      .feature p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .showcase {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .showcase-image {
+        min-height: 520px;
+        border-radius: 8px;
+        background:
+          linear-gradient(180deg, rgba(15, 109, 100, 0.02), rgba(196, 86, 74, 0.2)),
+          url("https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=1200&q=82") center / cover;
+        box-shadow: var(--shadow);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        margin-top: 34px;
+      }
+
+      .stat {
+        border-top: 2px solid var(--gold);
+        padding-top: 16px;
+      }
+
+      .stat b {
+        display: block;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      .contact {
+        border-radius: 8px;
+        padding: 44px;
+        color: #fff;
+        background: #172026;
+        box-shadow: var(--shadow);
+      }
+
+      .contact h2 {
+        max-width: 700px;
+      }
+
+      .contact p {
+        max-width: 680px;
+        margin: 18px 0 28px;
+        color: rgba(255, 255, 255, 0.72);
       }
 
       footer {
-        margin-top: 64px;
-        padding-top: 24px;
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        padding: 28px 0 42px;
         border-top: 1px solid var(--line);
         color: var(--muted);
-        font-size: 0.95rem;
+        font-size: 0.94rem;
+      }
+
+      @media (max-width: 760px) {
+        .nav {
+          min-height: 58px;
+        }
+
+        .nav-links {
+          gap: 14px;
+        }
+
+        .nav-links a {
+          font-size: 0.82rem;
+        }
+
+        .hero {
+          min-height: 88vh;
+          background-position: 58% center;
+        }
+
+        .hero-inner {
+          padding: 116px 0 86px;
+        }
+
+        .section {
+          padding: 64px 0;
+        }
+
+        .section-heading,
+        .showcase,
+        .feature-grid,
+        .stats {
+          grid-template-columns: 1fr;
+        }
+
+        .showcase-image {
+          min-height: 340px;
+          order: -1;
+        }
+
+        .contact {
+          padding: 30px 22px;
+        }
       }
     </style>
   </head>
   <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="#">My Website</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#works">Works</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
     <main>
-      <h1>こんにちは</h1>
-      <p>
-        GitHub Pagesで公開するシンプルなWebサイトです。
-        ここに自己紹介やプロジェクトへのリンクを追加できます。
-      </p>
-      <p>
-        <a href="https://github.com/">GitHubを見る</a>
-      </p>
-      <footer>
-        &copy; 2026 My Website
-      </footer>
+      <section class="hero" aria-label="Hero">
+        <div class="hero-inner">
+          <p class="eyebrow">Personal Website</p>
+          <h1>My Website</h1>
+          <p class="lead">
+            アイデア、制作物、日々の学びを美しくまとめるためのホームページです。
+            シンプルさを残しながら、印象に残る見た目へ整えました。
+          </p>
+          <div class="actions">
+            <a class="button primary" href="#works">制作を見る</a>
+            <a class="button" href="https://github.com/">GitHubを見る</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <h2>伝えたいことを、上品に見せる。</h2>
+          <p>
+            余白、写真、色のコントラストを使って、自己紹介やプロジェクトを見やすく配置しています。
+            テキストを書き換えるだけで、自分のサイトとして育てられます。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature">
+            <strong>01</strong>
+            <h3>Profile</h3>
+            <p>自己紹介、得意なこと、関心のある分野を短く整理して掲載できます。</p>
+          </article>
+          <article class="feature">
+            <strong>02</strong>
+            <h3>Portfolio</h3>
+            <p>作ったものや学習記録を、見出しと説明文でわかりやすく紹介できます。</p>
+          </article>
+          <article class="feature">
+            <strong>03</strong>
+            <h3>Contact</h3>
+            <p>GitHubやSNS、メールなど、見てほしいリンクへの導線を置けます。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section showcase" id="works">
+        <div class="showcase-image" role="img" aria-label="Modern architectural detail"></div>
+        <div class="text-block">
+          <p class="eyebrow" style="color: var(--teal);">Featured</p>
+          <h2>小さく始めて、少しずつ磨く。</h2>
+          <p>
+            このページはHTMLとCSSだけで構成しています。GitHub Pagesに向いた軽い作りなので、
+            文章やリンクを変更すればすぐに公開内容へ反映できます。
+          </p>
+          <div class="stats" aria-label="Site highlights">
+            <div class="stat">
+              <b>1</b>
+              <span>HTML file</span>
+            </div>
+            <div class="stat">
+              <b>0</b>
+              <span>Build steps</span>
+            </div>
+            <div class="stat">
+              <b>100%</b>
+              <span>GitHub Pages ready</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="contact">
+          <h2>ここから、あなたの内容に置き換えられます。</h2>
+          <p>
+            名前、プロフィール、制作物、リンクを入れるだけで、個人サイトとして使える構成です。
+            必要に応じてセクションを増やしていけます。
+          </p>
+          <a class="button primary" href="https://github.com/">GitHubへ</a>
+        </div>
+      </section>
     </main>
+
+    <footer>
+      &copy; 2026 My Website. Built for GitHub Pages.
+    </footer>
   </body>
 </html>
