@@ -231,6 +231,27 @@
         color: var(--muted);
       }
 
+      .profile-card .social-action {
+        margin-top: 18px;
+      }
+
+      .social-action a {
+        display: inline-flex;
+        min-height: 40px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        padding: 8px 14px;
+        color: #fff;
+        background: var(--green);
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      .social-action a:hover {
+        background: #0f514a;
+      }
+
       .showcase {
         display: grid;
         grid-template-columns: 1.05fr 0.95fr;
@@ -352,6 +373,7 @@
           <a href="#about">About</a>
           <a href="#interests">Interests</a>
           <a href="#future">Future</a>
+          <a href="#contact">Contact</a>
         </div>
       </nav>
     </header>
@@ -368,6 +390,7 @@
           <div class="actions">
             <a class="button primary" href="#about">プロフィールを見る</a>
             <a class="button" href="#interests">好きなことを見る</a>
+            <a class="button" href="#contact">連絡先</a>
           </div>
         </div>
       </section>
@@ -430,6 +453,36 @@
             自分に合う方向を見つけていきたいです。
           </p>
           <a class="button primary" href="#about">ページ上部へ戻る</a>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-heading">
+          <h2>連絡先</h2>
+          <p>
+            SNSでの連絡はFacebookからお願いします。
+            Instagramは現在凍結中のため、利用できません。
+          </p>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card">
+            <strong>SNS</strong>
+            <h3>Facebook</h3>
+            <p>連絡や近況の確認はこちらからできます。</p>
+            <p class="social-action">
+              <a href="https://facebook.com/share/18ReqRfisf/" target="_blank" rel="noreferrer">Facebookを見る</a>
+            </p>
+          </article>
+          <article class="profile-card">
+            <strong>Status</strong>
+            <h3>Instagram</h3>
+            <p>Instagramは現在凍結中です。復旧したら、このページにも追加します。</p>
+          </article>
+          <article class="profile-card">
+            <strong>Note</strong>
+            <h3>連絡について</h3>
+            <p>今のところ、公開する連絡先はFacebookのみです。</p>
+          </article>
         </div>
       </section>
     </main>
