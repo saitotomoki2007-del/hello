@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>齋藤智輝 | Personal Website</title>
-    <meta name="description" content="齋藤智輝の個人サイト。プロフィール、制作物、学びの記録をまとめています。">
+    <title>齋藤智輝 | 自己紹介</title>
+    <meta name="description" content="慶應義塾大学文学部の学生、齋藤智輝の自己紹介ページです。">
     <style>
       :root {
         color-scheme: light;
         --ink: #182026;
-        --muted: #687782;
-        --paper: #fbfaf7;
+        --muted: #60717d;
+        --paper: #f7f5ef;
         --panel: #ffffff;
-        --line: #dde5e8;
-        --teal: #0f6d64;
-        --gold: #b88735;
-        --coral: #c4564a;
+        --line: #dfe6e7;
+        --green: #14665d;
+        --red: #b94c44;
+        --gold: #ae7d31;
         --shadow: 0 18px 48px rgba(24, 32, 38, 0.12);
       }
 
@@ -32,7 +32,7 @@
         font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
         color: var(--ink);
         background: var(--paper);
-        line-height: 1.7;
+        line-height: 1.75;
       }
 
       a {
@@ -46,7 +46,7 @@
         z-index: 10;
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-        background: rgba(24, 32, 38, 0.74);
+        background: rgba(24, 32, 38, 0.76);
         backdrop-filter: blur(18px);
       }
 
@@ -69,7 +69,7 @@
 
       .nav-links {
         display: flex;
-        gap: 24px;
+        gap: 22px;
         align-items: center;
       }
 
@@ -91,16 +91,16 @@
         overflow: hidden;
         color: #fff;
         background:
-          linear-gradient(90deg, rgba(10, 17, 24, 0.9), rgba(10, 17, 24, 0.62) 54%, rgba(10, 17, 24, 0.28)),
-          url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1800&q=86") center / cover;
+          linear-gradient(90deg, rgba(12, 20, 25, 0.92), rgba(12, 20, 25, 0.66) 54%, rgba(12, 20, 25, 0.26)),
+          url("https://images.unsplash.com/photo-1545569341-9eb8b30979d9?auto=format&fit=crop&w=1800&q=86") center / cover;
       }
 
       .hero::after {
         content: "";
         position: absolute;
         inset: auto 0 0;
-        height: 26%;
-        background: linear-gradient(180deg, rgba(251, 250, 247, 0), var(--paper));
+        height: 24%;
+        background: linear-gradient(180deg, rgba(247, 245, 239, 0), var(--paper));
       }
 
       .hero-inner {
@@ -108,17 +108,17 @@
         z-index: 1;
         width: min(1120px, calc(100% - 32px));
         margin: 0 auto;
-        padding: 148px 0 118px;
+        padding: 148px 0 112px;
       }
 
       .eyebrow {
         display: inline-flex;
         align-items: center;
         gap: 10px;
-        margin: 0 0 24px;
+        margin: 0 0 22px;
         color: rgba(255, 255, 255, 0.84);
-        font-size: 0.85rem;
-        font-weight: 700;
+        font-size: 0.86rem;
+        font-weight: 800;
       }
 
       .eyebrow::before {
@@ -129,18 +129,18 @@
       }
 
       h1 {
-        max-width: 780px;
+        max-width: 820px;
         margin: 0;
-        font-size: clamp(3rem, 8vw, 6.8rem);
+        font-size: clamp(3rem, 8vw, 6.7rem);
         line-height: 0.98;
         letter-spacing: 0;
       }
 
       .lead {
-        max-width: 650px;
+        max-width: 700px;
         margin: 28px 0 0;
-        color: rgba(255, 255, 255, 0.82);
-        font-size: clamp(1.05rem, 2vw, 1.35rem);
+        color: rgba(255, 255, 255, 0.84);
+        font-size: clamp(1.05rem, 2vw, 1.32rem);
       }
 
       .actions {
@@ -185,8 +185,8 @@
 
       h2 {
         margin: 0;
-        font-size: clamp(2rem, 4vw, 3.6rem);
-        line-height: 1.08;
+        font-size: clamp(2rem, 4vw, 3.45rem);
+        line-height: 1.1;
         letter-spacing: 0;
       }
 
@@ -197,14 +197,14 @@
         font-size: 1.04rem;
       }
 
-      .feature-grid {
+      .profile-grid {
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 18px;
       }
 
-      .feature {
-        min-height: 230px;
+      .profile-card {
+        min-height: 220px;
         border: 1px solid var(--line);
         border-radius: 8px;
         padding: 26px;
@@ -212,21 +212,21 @@
         box-shadow: 0 10px 30px rgba(24, 32, 38, 0.06);
       }
 
-      .feature strong {
+      .profile-card strong {
         display: block;
         color: var(--gold);
         font-size: 0.86rem;
         margin-bottom: 14px;
       }
 
-      .feature h3 {
+      .profile-card h3 {
         margin: 0 0 12px;
         font-size: 1.3rem;
         line-height: 1.25;
         letter-spacing: 0;
       }
 
-      .feature p {
+      .profile-card p {
         margin: 0;
         color: var(--muted);
       }
@@ -242,32 +242,36 @@
         min-height: 520px;
         border-radius: 8px;
         background:
-          linear-gradient(180deg, rgba(15, 109, 100, 0.06), rgba(196, 86, 74, 0.22)),
-          url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=84") center / cover;
+          linear-gradient(180deg, rgba(20, 102, 93, 0.08), rgba(185, 76, 68, 0.2)),
+          url("https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1200&q=84") center / cover;
         box-shadow: var(--shadow);
       }
 
-      .stats {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 16px;
-        margin-top: 34px;
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 28px 0 0;
+        padding: 0;
+        list-style: none;
       }
 
-      .stat {
-        border-top: 2px solid var(--gold);
-        padding-top: 16px;
+      .tag-list li {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 8px 14px;
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.72);
+        font-size: 0.92rem;
+        font-weight: 700;
       }
 
-      .stat b {
-        display: block;
-        font-size: 1.8rem;
-        line-height: 1;
-      }
-
-      .stat span {
+      .note {
+        border-left: 4px solid var(--green);
+        margin-top: 30px;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.72);
         color: var(--muted);
-        font-size: 0.9rem;
       }
 
       .contact {
@@ -279,26 +283,13 @@
       }
 
       .contact h2 {
-        max-width: 700px;
+        max-width: 760px;
       }
 
       .contact p {
-        max-width: 680px;
+        max-width: 720px;
         margin: 18px 0 28px;
         color: rgba(255, 255, 255, 0.72);
-      }
-
-      .contact-mail {
-        display: block;
-        width: fit-content;
-        margin-top: 16px;
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 0.86rem;
-        text-decoration: none;
-      }
-
-      .contact-mail:hover {
-        color: #fff;
       }
 
       footer {
@@ -325,7 +316,7 @@
 
         .hero {
           min-height: 88vh;
-          background-position: 58% center;
+          background-position: 54% center;
         }
 
         .hero-inner {
@@ -338,8 +329,7 @@
 
         .section-heading,
         .showcase,
-        .feature-grid,
-        .stats {
+        .profile-grid {
           grid-template-columns: 1fr;
         }
 
@@ -360,8 +350,8 @@
         <a class="brand" href="#">齋藤智輝</a>
         <div class="nav-links">
           <a href="#about">About</a>
-          <a href="#works">Works</a>
-          <a href="#contact">GitHub</a>
+          <a href="#interests">Interests</a>
+          <a href="#future">Future</a>
         </div>
       </nav>
     </header>
@@ -372,12 +362,12 @@
           <p class="eyebrow">Tomoki Saito</p>
           <h1>齋藤智輝</h1>
           <p class="lead">
-            Web制作やプログラミングを学びながら、作ったものや気づいたことを少しずつ残していく場所です。
-            まだ小さなサイトですが、ここから更新していきます。
+            慶應義塾大学文学部の学生です。日本維新の会学生部に所属しながら、
+            学び、活動、趣味を通して自分の関心を広げています。
           </p>
           <div class="actions">
-            <a class="button primary" href="#works">制作を見る</a>
-            <a class="button" href="https://github.com/saitotomoki2007-del">GitHubを見る</a>
+            <a class="button primary" href="#about">プロフィールを見る</a>
+            <a class="button" href="#interests">好きなことを見る</a>
           </div>
         </div>
       </section>
@@ -386,70 +376,66 @@
         <div class="section-heading">
           <h2>こんにちは、齋藤智輝です。</h2>
           <p>
-            HTMLやCSS、GitHub Pagesを使って、Webサイトを作る流れを学んでいます。
-            このページも、その学習の一つとして公開しています。
+            まだ得意分野や将来の目標を一つに決めきらず、いろいろなことに触れながら考えています。
+            その時々の関心を大切にして、学びと経験を少しずつ積み重ねています。
           </p>
         </div>
-        <div class="feature-grid">
-          <article class="feature">
+        <div class="profile-grid">
+          <article class="profile-card">
             <strong>01</strong>
-            <h3>About</h3>
-            <p>Web制作に興味があり、実際に手を動かしながら少しずつできることを増やしています。</p>
+            <h3>学生</h3>
+            <p>慶應義塾大学文学部で学んでいます。大学での学びを通して、社会や人への理解を深めています。</p>
           </article>
-          <article class="feature">
+          <article class="profile-card">
             <strong>02</strong>
-            <h3>Learning</h3>
-            <p>HTML、CSS、GitHubの使い方を中心に、サイトを公開するところまで試しています。</p>
+            <h3>所属</h3>
+            <p>日本維新の会学生部に所属しています。学生として、社会や政治について考える機会を持っています。</p>
           </article>
-          <article class="feature">
+          <article class="profile-card">
             <strong>03</strong>
-            <h3>Next</h3>
-            <p>このサイトに、作ったページや学習記録を少しずつ追加していく予定です。</p>
+            <h3>姿勢</h3>
+            <p>得意なことはまだ探している途中です。だからこそ、決めつけずに幅広く挑戦していきたいと思っています。</p>
           </article>
         </div>
       </section>
 
-      <section class="section showcase" id="works">
-        <div class="showcase-image" role="img" aria-label="Circuit board and technology detail"></div>
+      <section class="section showcase" id="interests">
+        <div class="showcase-image" role="img" aria-label="Japanese castle and surrounding town"></div>
         <div class="text-block">
-          <p class="eyebrow" style="color: var(--teal);">Works</p>
-          <h2>最初の公開ページです。</h2>
+          <p class="eyebrow" style="color: var(--green);">Interests</p>
+          <h2>ポケモンと城巡りが好きです。</h2>
           <p>
-            まずは自分の名前で公開できるページを作りました。
-            これから作ったものが増えたら、このセクションにリンクや説明を追加していきます。
+            趣味はポケモンや城巡りなどです。好きなものをきっかけに、
+            歴史、地域、文化にも関心が広がっていくところがおもしろいと感じています。
           </p>
-          <div class="stats" aria-label="Site highlights">
-            <div class="stat">
-              <b>1</b>
-              <span>公開中のサイト</span>
-            </div>
-            <div class="stat">
-              <b>HTML</b>
-              <span>学習中</span>
-            </div>
-            <div class="stat">
-              <b>GitHub</b>
-              <span>公開場所</span>
-            </div>
-          </div>
+          <ul class="tag-list" aria-label="好きなこと">
+            <li>ポケモン</li>
+            <li>城巡り</li>
+            <li>歴史</li>
+            <li>地域を知ること</li>
+          </ul>
+          <p class="note">
+            実績として大きく載せたいものは今のところありません。
+            これから経験が増えたら、このページにも追加していきます。
+          </p>
         </div>
       </section>
 
-      <section class="section" id="contact">
+      <section class="section" id="future">
         <div class="contact">
-          <h2>GitHubで公開しています。</h2>
+          <h2>今もこれからも、いろいろなことに取り組んでいます。</h2>
           <p>
-            このサイトの更新や、これから作るものはGitHubに置いていきます。
-            内容が増えてきたら、プロフィールや作品紹介も少しずつ整えていきます。
+            現在取り組んでいることも、将来やりたいことも、まだ一言ではまとめきれません。
+            だからこそ、大学生活や学生部での活動、趣味で得た関心をつなげながら、
+            自分に合う方向を見つけていきたいです。
           </p>
-          <a class="button primary" href="https://github.com/saitotomoki2007-del">GitHubへ</a>
-          <a class="contact-mail" href="mailto:saitotomoki2007@gmail.com">saitotomoki2007@gmail.com</a>
+          <a class="button primary" href="#about">ページ上部へ戻る</a>
         </div>
       </section>
     </main>
 
     <footer>
-      &copy; 2026 齋藤智輝. Published with GitHub Pages.
+      &copy; 2026 齋藤智輝.
     </footer>
   </body>
 </html>
